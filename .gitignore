@@ -24,6 +24,7 @@ packages/
 # Secrets & config overrides
 appsettings.Development.json
 appsettings.Local.json
+appsettings.json
 *.pfx
 *.p12
 secrets.json
