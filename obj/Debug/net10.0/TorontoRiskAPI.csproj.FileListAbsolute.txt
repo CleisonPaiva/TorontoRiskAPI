@@ -1,5 +1,4 @@
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\appsettings.Development.json
-C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\appsettings.json
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\TorontoRiskAPI.staticwebassets.endpoints.json
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\TorontoRiskAPI.exe
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\TorontoRiskAPI.deps.json
@@ -127,3 +126,5 @@ C:\Users\cleison.paiva\Documents\TorontoRiskAPI\obj\Debug\net10.0\TorontoRiskAPI
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\obj\Debug\net10.0\ref\TorontoRiskAPI.dll
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\NetTopologySuite.Features.dll
 C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\NetTopologySuite.IO.GeoJSON4STJ.dll
+C:\Users\cleison.paiva\Documents\TorontoRiskAPI\obj\Debug\net10.0\TorontoRiskAPI.sourcelink.json
+C:\Users\cleison.paiva\Documents\TorontoRiskAPI\bin\Debug\net10.0\appsettings.json

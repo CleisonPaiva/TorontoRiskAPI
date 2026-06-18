@@ -13,5 +13,11 @@ namespace TorontoRiskAPI.Controllers
         {
             return Ok(await neighborhoodService.GetAllAsync());
         }
+
+        [HttpGet("at-risk")]
+        public async Task<ActionResult<IEnumerable<Neighborhood>>> GetAtRisk()
+        {
+            return Ok(await neighborhoodService.GetAtRiskAsync());
+        }
     }
 }

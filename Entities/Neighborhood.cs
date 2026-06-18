@@ -9,13 +9,13 @@ namespace TorontoRiskAPI.Models
     {
         [Key]
         [Column("AREA_S_CD")]
-        public int Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         [Column("AREA_NAME")]
         public string? Name { get; set; }
 
         [Column("risk_count")]
-        public int RiskCount { get; set; }
+        public long RiskCount { get; set; }
 
         [Column("geometry")]
         public Geometry? Geometry { get; set; }

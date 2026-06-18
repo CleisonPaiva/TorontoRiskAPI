@@ -11,5 +11,13 @@ namespace TorontoRiskAPI.Services
         {
             return await context.Neighborhoods.ToListAsync();
         }
+
+        public async Task<IEnumerable<Neighborhood>> GetAtRiskAsync()
+        {
+            return await context.Neighborhoods
+                .Where(n => n.RiskCount > 0)
+                .OrderByDescending(n => n.RiskCount)
+                .ToListAsync();
+        }
     }
 }
