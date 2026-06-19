@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TorontoRiskAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+952a206b296db3152d91e23a36c98ccbec9e4658")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d91ebcc68ce9b7345a862e6fc2b3cf346ea60908")]
 [assembly: System.Reflection.AssemblyProductAttribute("TorontoRiskAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TorontoRiskAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,7 +9,7 @@ namespace TorontoRiskAPI.Controllers
     public class FloodZonesController(IFloodZoneService floodZoneService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FloodZone>>> GetAll()
+        public async Task<ActionResult<FeatureCollectionDto<FloodZonePropertiesDto>>> GetAll()
         {
             return Ok(await floodZoneService.GetAllAsync());
         }

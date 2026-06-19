@@ -88,8 +88,9 @@ TorontoRiskAPI/
 │   │   ├──FeatureCollectionDto.cs
 │   │   └──FeatureDto.cs
 │   ├── NeighborhoodPropertiesDto.cs
-│   ├──HospitalPropertiesDto.cs
-│   ├──SchoolPropertiesDto.cs
+│   ├── HospitalPropertiesDto.cs
+│   ├── SchoolPropertiesDto.cs
+│   ├── FloodZonePropertiesDto.cs
 │   └── SubwayPropertiesDto.cs
 │
 ├── Models/

@@ -4,6 +4,6 @@ namespace TorontoRiskAPI.Services.Interfaces
 {
     public interface IFloodZoneService
     {
-        Task<IEnumerable<FloodZone>> GetAllAsync();
+        Task<FeatureCollectionDto<FloodZonePropertiesDto>> GetAllAsync();
     }
 }

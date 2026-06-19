@@ -7,9 +7,24 @@ namespace TorontoRiskAPI.Services
 {
     public class FloodZoneService(TorontoRiskDbContext context) : IFloodZoneService
     {
-        public async Task<IEnumerable<FloodZone>> GetAllAsync()
+        public async Task<FeatureCollectionDto<FloodZonePropertiesDto>> GetAllAsync()
         {
-            return await context.FloodZones.ToListAsync();
+            var floodZones = await context.FloodZones.ToListAsync();
+            var features = floodZones.Select(fz => new FeatureDto<FloodZonePropertiesDto>
+            {
+                Type = "Feature",
+                Properties = new FloodZonePropertiesDto
+                {
+                    Id = fz.Id
+                },
+                Geometry = fz.Geometry
+            });
+
+            return new FeatureCollectionDto<FloodZonePropertiesDto>
+            {
+                Type = "FeatureCollection",
+                Features = features.ToList()
+            };
         }
     }
 }
