@@ -7,17 +7,52 @@ namespace TorontoRiskAPI.Services
 {
     public class NeighborhoodService(TorontoRiskDbContext context) : INeighborhoodService
     {
-        public async Task<IEnumerable<Neighborhood>> GetAllAsync()
+        public async Task<FeatureCollectionDto<NeighborhoodPropertiesDto>> GetAllAsync()
         {
-            return await context.Neighborhoods.ToListAsync();
+            var neighborhoods = await context.Neighborhoods.ToListAsync();
+            var features = neighborhoods.Select(n => new FeatureDto<NeighborhoodPropertiesDto>
+            {
+                Type = "Feature",
+                Properties = new NeighborhoodPropertiesDto
+                {
+                    Id = n.Id,
+                    Name = n.Name,
+                    RiskCount = n.RiskCount
+                },
+                Geometry = n.Geometry
+            });
+
+            return new FeatureCollectionDto<NeighborhoodPropertiesDto>
+            {
+                Type = "FeatureCollection",
+                Features = features.ToList()
+            };
         }
 
-        public async Task<IEnumerable<Neighborhood>> GetAtRiskAsync()
+        public async Task<FeatureCollectionDto<NeighborhoodPropertiesDto>> GetAtRiskAsync()
         {
-            return await context.Neighborhoods
+            var atRiskNeighborhoods = await context.Neighborhoods
                 .Where(n => n.RiskCount > 0)
                 .OrderByDescending(n => n.RiskCount)
                 .ToListAsync();
+
+            var features = atRiskNeighborhoods.Select(n => new FeatureDto<NeighborhoodPropertiesDto>
+            {
+                Type = "Feature",
+                Properties = new NeighborhoodPropertiesDto
+                {
+                    Id = n.Id,
+                    Name = n.Name,
+                    RiskCount = n.RiskCount
+                },
+                Geometry = n.Geometry
+            });
+
+            return new FeatureCollectionDto<NeighborhoodPropertiesDto>
+            {
+                Type = "FeatureCollection",
+                Features = features.ToList()
+            };
         }
     }
 }

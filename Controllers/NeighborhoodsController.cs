@@ -9,13 +9,13 @@ namespace TorontoRiskAPI.Controllers
     public class NeighborhoodsController(INeighborhoodService neighborhoodService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Neighborhood>>> GetAll()
+        public async Task<ActionResult<FeatureCollectionDto<NeighborhoodPropertiesDto>>> GetAll()
         {
             return Ok(await neighborhoodService.GetAllAsync());
         }
 
         [HttpGet("at-risk")]
-        public async Task<ActionResult<IEnumerable<Neighborhood>>> GetAtRisk()
+        public async Task<ActionResult<FeatureCollectionDto<NeighborhoodPropertiesDto>>> GetAtRisk()
         {
             return Ok(await neighborhoodService.GetAtRiskAsync());
         }

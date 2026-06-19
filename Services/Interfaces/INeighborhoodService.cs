@@ -4,7 +4,7 @@ namespace TorontoRiskAPI.Services.Interfaces
 {
     public interface INeighborhoodService
     {
-        Task<IEnumerable<Neighborhood>> GetAllAsync();
-        Task<IEnumerable<Neighborhood>> GetAtRiskAsync();
+        Task<FeatureCollectionDto<NeighborhoodPropertiesDto>> GetAllAsync();
+        Task<FeatureCollectionDto<NeighborhoodPropertiesDto>> GetAtRiskAsync();
     }
 }

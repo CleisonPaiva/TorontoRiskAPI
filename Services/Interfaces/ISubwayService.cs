@@ -4,7 +4,7 @@ namespace TorontoRiskAPI.Services.Interfaces
 {
     public interface ISubwayService
     {
-        Task<IEnumerable<Subway>> GetAllAsync();
-        Task<IEnumerable<Subway>> GetAtRiskAsync();
+        Task<FeatureCollectionDto<SubwayPropertiesDto>> GetAllAsync();
+        Task<FeatureCollectionDto<SubwayPropertiesDto>> GetAtRiskAsync();
     }
 }

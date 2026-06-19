@@ -9,13 +9,13 @@ namespace TorontoRiskAPI.Controllers
     public class HospitalsController(IHospitalService hospitalService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hospital>>> GetAll()
+        public async Task<ActionResult<FeatureCollectionDto<HospitalPropertiesDto>>> GetAll()
         {
             return Ok(await hospitalService.GetAllAsync());
         }
 
         [HttpGet("at-risk")]
-        public async Task<ActionResult<IEnumerable<Hospital>>> GetAtRisk()
+        public async Task<ActionResult<FeatureCollectionDto<HospitalPropertiesDto>>> GetAtRisk()
         {
             return Ok(await hospitalService.GetAtRiskAsync());
         }

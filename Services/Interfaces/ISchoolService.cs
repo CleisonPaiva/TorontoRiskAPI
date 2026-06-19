@@ -4,7 +4,7 @@ namespace TorontoRiskAPI.Services.Interfaces
 {
     public interface ISchoolService
     {
-        Task<IEnumerable<School>> GetAllAsync();
-        Task<IEnumerable<School>> GetAtRiskAsync();
+        Task<FeatureCollectionDto<SchoolPropertiesDto>> GetAllAsync();
+        Task<FeatureCollectionDto<SchoolPropertiesDto>> GetAtRiskAsync();
     }
 }

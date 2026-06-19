@@ -4,7 +4,7 @@ namespace TorontoRiskAPI.Services.Interfaces
 {
     public interface IHospitalService
     {
-        Task<IEnumerable<Hospital>> GetAllAsync();
-        Task<IEnumerable<Hospital>> GetAtRiskAsync();
+        Task<FeatureCollectionDto<HospitalPropertiesDto>> GetAllAsync();
+        Task<FeatureCollectionDto<HospitalPropertiesDto>> GetAtRiskAsync();
     }
 }

@@ -83,6 +83,15 @@ TorontoRiskAPI/
 │   └── NeighborhoodsController.cs
 ├── Data/
 │   └── TorontoRiskDbContext.cs
+├──DTOs/
+│   ├── GeoJson/
+│   │   ├──FeatureCollectionDto.cs
+│   │   └──FeatureDto.cs
+│   ├── NeighborhoodPropertiesDto.cs
+│   ├──HospitalPropertiesDto.cs
+│   ├──SchoolPropertiesDto.cs
+│   └── SubwayPropertiesDto.cs
+│
 ├── Models/
 │   ├── Hospital.cs
 │   ├── School.cs

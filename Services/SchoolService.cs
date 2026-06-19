@@ -7,16 +7,55 @@ namespace TorontoRiskAPI.Services
 {
     public class SchoolService(TorontoRiskDbContext context) : ISchoolService
     {
-        public async Task<IEnumerable<School>> GetAllAsync()
+        public async Task<FeatureCollectionDto<SchoolPropertiesDto>> GetAllAsync()
         {
-            return await context.Schools.ToListAsync();
+            var schools = await context.Schools.ToListAsync();
+            var features = schools.Select(s => new FeatureDto<SchoolPropertiesDto>
+            {
+                Type = "Feature",
+                Properties = new SchoolPropertiesDto
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    AddrStreet = s.AddrStreet,
+                    Website = s.Website,
+                    AtRisk = s.AtRisk
+                },
+                Geometry = s.Geometry
+            });
+
+            return new FeatureCollectionDto<SchoolPropertiesDto>
+            {
+                Type = "FeatureCollection",
+                Features = features.ToList()
+            };
         }
 
-        public async Task<IEnumerable<School>> GetAtRiskAsync()
+        public async Task<FeatureCollectionDto<SchoolPropertiesDto>> GetAtRiskAsync()
         {
-            return await context.Schools
+            var atRiskSchools = await context.Schools
                 .Where(s => s.AtRisk)
                 .ToListAsync();
+
+            var features = atRiskSchools.Select(s => new FeatureDto<SchoolPropertiesDto>
+            {
+                Type = "Feature",
+                Properties = new SchoolPropertiesDto
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    AddrStreet = s.AddrStreet,
+                    Website = s.Website,
+                    AtRisk = s.AtRisk
+                },
+                Geometry = s.Geometry
+            });
+
+            return new FeatureCollectionDto<SchoolPropertiesDto>
+            {
+                Type = "FeatureCollection",
+                Features = features.ToList()
+            };
         }
     }
 }
