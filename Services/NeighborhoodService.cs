@@ -16,7 +16,7 @@ namespace TorontoRiskAPI.Services
                 Properties = new NeighborhoodPropertiesDto
                 {
                     Id = n.Id,
-                    Name = n.Name,
+                    Name = System.Text.RegularExpressions.Regex.Replace(n.Name ?? "", @"\s*\(\d+\)$", ""),
                     RiskCount = n.RiskCount
                 },
                 Geometry = n.Geometry
@@ -42,7 +42,7 @@ namespace TorontoRiskAPI.Services
                 Properties = new NeighborhoodPropertiesDto
                 {
                     Id = n.Id,
-                    Name = n.Name,
+                    Name = System.Text.RegularExpressions.Regex.Replace(n.Name ?? "", @"\s*\(\d+\)$", ""),
                     RiskCount = n.RiskCount
                 },
                 Geometry = n.Geometry

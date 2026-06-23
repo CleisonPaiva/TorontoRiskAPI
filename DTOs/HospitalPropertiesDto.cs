@@ -4,5 +4,5 @@ public class HospitalPropertiesDto
     public string? Name { get; set; }
     public string? Website { get; set; }
     public string? AddrStreet { get; set; }
-    public bool AtRisk { get; set; }
+    public string AtRisk { get; set; }
 }

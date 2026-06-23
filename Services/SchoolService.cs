@@ -19,7 +19,7 @@ namespace TorontoRiskAPI.Services
                     Name = s.Name,
                     AddrStreet = s.AddrStreet,
                     Website = s.Website,
-                    AtRisk = s.AtRisk
+                    AtRisk = s.AtRisk ? "Yes" : "No"
                 },
                 Geometry = s.Geometry
             });
@@ -46,7 +46,7 @@ namespace TorontoRiskAPI.Services
                     Name = s.Name,
                     AddrStreet = s.AddrStreet,
                     Website = s.Website,
-                    AtRisk = s.AtRisk
+                    AtRisk = s.AtRisk ? "Yes" : "No"
                 },
                 Geometry = s.Geometry
             });
