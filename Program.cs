@@ -6,6 +6,18 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+
+// Lê a connection string da configuração
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Converte URI do formato postgresql:// para o formato Npgsql (Host=...;Port=...;)
+// Necessário porque o Render pode quebrar a string com ponto e vírgula
+if (connectionString != null && connectionString.StartsWith("postgresql://"))
+{
+    var uri = new Uri(connectionString);
+    connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={uri.UserInfo.Split(':')[0]};Password={uri.UserInfo.Split(':')[1]};SSL Mode=Require;Trust Server Certificate=true";
+}
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -33,9 +45,10 @@ builder.Services.AddScoped<ISubwayService, SubwayService>();
 builder.Services.AddScoped<IFloodZoneService, FloodZoneService>();
 builder.Services.AddScoped<INeighborhoodService, NeighborhoodService>();
 
+// Usa a connectionString já convertida (não o Configuration direto)
 builder.Services.AddDbContext<TorontoRiskDbContext>(options =>
     options.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
+        connectionString,
         o => o.UseNetTopologySuite()
     )
 );
